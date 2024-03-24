@@ -38,7 +38,7 @@ h1
         @include flex_center(column);
         margin-left: 10%;
         align-items: baseline;
-        gap: 30px;
+        gap: 26px;
         margin-top: 40px;
     }
 
@@ -54,7 +54,7 @@ h1
         
        display: block;
     //    background-color: red;
-        width: 180px;
+        width: 200px;
         color: white;
         // letter-spacing: 2px;
         @include font($medium_text_font, 25px, 500)
@@ -96,10 +96,20 @@ h1
 
 .submit
 {
-    margin-top: 2%;
-    margin-right: 5%;
+
+    // margin-top: 2%;
+    // margin-right: 5%;
+    position: relative;
+    left: 50%;
     float: right;
-    button
+    
+
+}
+
+
+
+
+button
     {
         opacity: 0.7;
         border-radius: 5px;
@@ -123,21 +133,35 @@ h1
         }
 
     }
-    .Go
-    {
-        background-image: none;
-        color: rgb(9, 9, 86);
-        background-color: white;
-    }
-
+.Go
+{
+    position: relative;
+    bottom: 5.5%;
+    left: 77%;
+    background-image: none;
+    color: rgb(9, 9, 86);
+    background-color: white;
 }
 
+.fert_go
+{
+    bottom: 8%;
+}
+
+
+.next
+{
+    position: relative;
+   float: right;
+   left: 180%;
+}
 
 
 .location
 {
     @extend .Crop_Rec;
-    height: 400px;
+
+    height: 300px;
     width: 400px;
     background-color: rgba(12, 39, 4, 0.758);
     form
@@ -174,8 +198,12 @@ h1
 .submit_fert
 {
     
+    
     @extend .submit;
-    margin-top: 8%;
+    margin-top: 4%;
+    position: relative;
+    left: 40%;
+    
    
 
 }

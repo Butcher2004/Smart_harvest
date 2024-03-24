@@ -24,7 +24,7 @@
         <form action="{{ url_for('index') }}" method="post">
             <div class="feature">
                 <label >Crop :</label>
-                <select name="crop" onkeypress="moveToNext(event, 'nitro')">
+                <select autocomplete="off" name="crop" onkeypress="moveToNext(event, 'nitro')" required>
                     <option hidden value=""></option>
                     <option value="apple">apple</option>
                     <option value="banana">banana</option>
@@ -52,23 +52,23 @@
             </div>
             <div class="feature">
                 <label for="nitro">Nitrogen :</label>
-                <input name="nitrogen" type="text" id="nitro" onkeypress="moveToNext(event, 'Pho')">
+                <input autocomplete="off" name="nitrogen" type="text" id="nitro" onkeypress="moveToNext(event, 'Pho')" required>
             </div>
             <div class="feature">
                 <label for="Pho">Phosphorous :</label>
-                <input name="phosphorous" type="text" id="Pho" onkeypress="moveToNext(event, 'Pot')">
+                <input autocomplete="off" name="phosphorous" type="text" id="Pho" onkeypress="moveToNext(event, 'Pot')" required>
             </div>
             <div class="feature">
                 <label for="Pot">Potassium :</label>
-                <input name="potassium" type="text" id="Pot" onkeypress="moveToNext(event, 'sub')">>
+                <input autocomplete="off" name="potassium" type="text" id="Pot" onkeypress="moveToNext(event, 'sub')" required>
             </div>
-
+            
             <div class="submit_fert">
                 <button type="submit">Submit</button>
-                <a href="Choose.html"><button class="Go">Go Back</button></a>
+                
               </div>
         </form>
-        
+        <a href="/goback"><button class="Go fert_go">Go Back</button></a>
     </div>
 </body>
 </html>

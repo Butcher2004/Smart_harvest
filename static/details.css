@@ -42,7 +42,7 @@ h1 {
   flex-direction: column;
   margin-left: 10%;
   align-items: baseline;
-  gap: 30px;
+  gap: 26px;
   margin-top: 40px;
 }
 .Crop_Rec div, .fert div, .location div {
@@ -54,7 +54,7 @@ h1 {
 }
 .Crop_Rec label, .fert label, .location label {
   display: block;
-  width: 180px;
+  width: 200px;
   color: white;
   font-family: Roboto;
   font-size: 25px;
@@ -84,11 +84,12 @@ h1 {
 }
 
 .submit, .submit_fert {
-  margin-top: 2%;
-  margin-right: 5%;
+  position: relative;
+  left: 50%;
   float: right;
 }
-.submit button, .submit_fert button {
+
+button {
   opacity: 0.7;
   border-radius: 5px;
   box-shadow: 5px 8px 10px 1px black;
@@ -103,21 +104,35 @@ h1 {
   outline: none;
   border: none;
 }
-.submit button:active, .submit_fert button:active {
+button:active {
   transform: translate(2px, 2px);
   box-shadow: 2px 2px 5px 1px black;
 }
-.submit button:hover, .submit_fert button:hover, .submit button:focus, .submit_fert button:focus {
+button:hover, button:focus {
   opacity: 1;
 }
-.submit .Go, .submit_fert .Go {
+
+.Go {
+  position: relative;
+  bottom: 5.5%;
+  left: 77%;
   background-image: none;
   color: rgb(9, 9, 86);
   background-color: white;
 }
 
+.fert_go {
+  bottom: 8%;
+}
+
+.next {
+  position: relative;
+  float: right;
+  left: 180%;
+}
+
 .location {
-  height: 400px;
+  height: 300px;
   width: 400px;
   background-color: rgba(12, 39, 4, 0.758);
 }
@@ -142,5 +157,7 @@ h1 {
 }
 
 .submit_fert {
-  margin-top: 8%;
+  margin-top: 4%;
+  position: relative;
+  left: 40%;
 }/*# sourceMappingURL=details.css.map */

@@ -13,6 +13,8 @@ body {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  margin: auto;
+  width: 90vw;
 }
 
 h1 {
@@ -25,6 +27,22 @@ h1 span {
   color: rgb(32, 78, 32);
 }
 
+.optimal {
+  text-align: center;
+  width: 100%;
+  padding-block: 3%;
+  background-color: #1d311d;
+  color: white;
+  margin-top: 0;
+  font-family: Lato;
+  font-size: 45px;
+  font-weight: 500;
+}
+.optimal span {
+  text-transform: capitalize;
+  color: green;
+}
+
 a {
   text-decoration: none;
   color: black;
@@ -33,6 +51,7 @@ a {
 .icons {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
+  height: 80vh;
   gap: 40px;
 }
 .icons .i {
@@ -78,10 +97,30 @@ a {
 .icons img {
   height: 40px;
 }
-.icons .last {
-  position: absolute;
-  top: 77%;
-  left: 44.8%;
+
+.gainers h2, .loosers h2 {
+  font-family: Futura;
+  font-size: 40px;
+  font-weight: 400;
+  color: rgb(32, 78, 32);
+}
+.gainers p, .loosers p {
+  text-align: center;
+  font-family: Lato;
+  font-size: 30px;
+  font-weight: 400;
+  color: white;
+  text-transform: capitalize;
+}
+
+.loosers {
+  display: none;
+}
+
+h1 {
+  font-family: Helvetica;
+  font-size: 60px;
+  font-weight: 500;
 }
 
 @keyframes fill {

@@ -14,27 +14,68 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/css/details.css">
-    <script defer src="/js/Details.js"></script>
+    <link rel="stylesheet" href="/static/details.css">
+    <script defer src="/static/Details.js"></script>
     <title>Details</title>
 </head>
+
+
+
 <body>
     <div class="location">
         <h1>Location</h1>
-        <form>
-            <div class="feature">
+        <form action="/weather", method="post">
+            <!-- <div class="feature">
                 <label >State :</label>
-                <select onkeypress="moveToNext(event, 'Zip_code')">
+                <select onkeypress="moveToNext(event, 'Zip_code')" name="state" required autocomplete="off">
                     <option hidden value=""></option>
                     <option value="andhrapradesh">andhrapradesh</option>
                     <option value="bihar">bihar</option>
                     <option value="chattisgarh">chattisgarh</option>
-                    <option value="goa">goa</option>
+                    
                     <option value="gujarat">gujarat</option>
                     <option value="harayana">harayana</option>
                     <option value="himachalpradesh">himachalpradesh</option>
                     <option value="jammukashmir">jammukashmir</option>
-                    <option value="jharkhand">jharkhand</option>
+                    <option value="karnataka">karnataka</option>
+                    <option value="kerala">kerala</option>
+                    <option value="madhyapradesh">madhyapradesh</option>
+                    <option value="maharashtra">maharashtra</option>
+                    <option value="northeast">northeast</option>
+                    <option value="orissa">orissa</option>
+                    <option value="punjab">punjab</option>
+                    <option value="rajasthan">rajasthan</option>
+                    <option value="tamilnadu">tamilnadu</option>
+                    <option value="telangana">telangana</option>
+                    <option value="uttarakhand">uttarakhand</option>
+                    <option value="uttarpradesh">uttarpradesh</option>
+                    <option value="westbengal">westbengal</option>
+                </select>
+            </div> -->
+            <div class="feature">
+                <label for="Zip_code">Pin Code :</label>
+                <input type="text" id="Zip_code" onkeypress="moveToNext(event, 'district')" name="zip" required autocomplete="off">
+            </div>
+            <a href="#"><button class="Go next" type="submit" onclick="hide()">Next</button></a>
+            
+        </form>
+    </div>
+    <div class="Crop_Rec">
+        <h1>Crop Growing Conditions</h1>
+        <form action="{{ url_for('prediction') }}" method="post"> 
+            <div class="feature">
+                <label >State :</label>
+                <select name="state" autocomplete="off">
+                    <option hidden value="{{ state }}">{{ state }}</option>
+                    <option value="andhrapradesh">andhrapradesh</option>
+                    <option value="bihar">bihar</option>
+                    <option value="chattisgarh">chattisgarh</option>
+                    <!-- <option value="goa">goa</option> -->
+                    <option value="gujarat">gujarat</option>
+                    <option value="haryana">haryana</option>
+                    <option value="himachalpradesh">himachalpradesh</option>
+                    <option value="jammukashmir">jammukashmir</option>
+                    <!-- <option value="jharkhand">jharkhand</option> -->
                     <option value="karnataka">karnataka</option>
                     <option value="kerala">kerala</option>
                     <option value="madhyapradesh">madhyapradesh</option>
@@ -51,22 +92,8 @@
                 </select>
             </div>
             <div class="feature">
-                <label for="Zip_code">Zip Code :</label>
-                <input type="text" id="Zip_code" onkeypress="moveToNext(event, 'district')">
-            </div>
-            <div class="feature">
-                <label for="district">District :</label>
-                <input type="text" id="district" onkeypress="moveToNext(event, 'season_select')">
-            </div>
-            
-        </form>
-    </div>
-    <div class="Crop_Rec">
-        <h1>Crop Growing Conditions</h1>
-        <form> 
-            <div class="feature">
                 <label >Season :</label>
-                <select id="season_select">
+                <select id="season_select" name="season" required autocomplete="off">
                     <option hidden value=""></option>
                     <option value="kharif">kharif</option>
                     <option value="rabi">rabi</option>
@@ -75,41 +102,39 @@
             </div>
             
             <div class="feature">
-                <label for="temperature">Temperature :</label>
-                <input type="text" id="temperature" onkeypress="moveToNext(event, 'humidity')">
+                <label for="temperature">Temperature(&deg;C) :</label>
+                <input type="text" value="{{ temperature }}" name="temp" id="temperature" onkeypress="moveToNext(event, 'humidity')" required autocomplete="off">
             </div>
             <div class="feature">
                 <label for="humidity">Humidity :</label>
-                <input type="text" id="humidity" onkeypress="moveToNext(event, 'Ph')">
+                <input type="text" value="{{ humidity }}" name="humidity" id="humidity" onkeypress="moveToNext(event, 'Ph')" required autocomplete="off">
             </div>
             <div class="feature">
-                <label for="Ph">Ph :</label>
-                <input type="text" id="Ph" onkeypress="moveToNext(event, 'rainfall')">
+                <label for="Ph">pH :</label>
+                <input type="text" name="ph" id="Ph" onkeypress="moveToNext(event, 'rainfall')" required autocomplete="off">
             </div>
             <div class="feature">
-                <label for="rainfall">Rainfall :</label>
-                <input type="text" id="rainfall" onkeypress="moveToNext(event, 'nitro')">
+                <label for="rainfall">Rainfall(mm) :</label>
+                <input type="text" name="rainfall" id="rainfall" onkeypress="moveToNext(event, 'nitro')" required autocomplete="off">
             </div>
             <div class="feature">
                 <label for="nitro">Nitrogen :</label>
-                <input type="text" id="nitro" onkeypress="moveToNext(event, 'Pho')">
+                <input type="text" name="nitrogen" id="nitro" onkeypress="moveToNext(event, 'Pho')" required autocomplete="off">
             </div>
             <div class="feature">
                 <label for="Pho">Phosphorous :</label>
-                <input type="text" id="Pho" onkeypress="moveToNext(event, 'Pot')">
+                <input type="text" name="phosphorous" id="Pho" onkeypress="moveToNext(event, 'Pot')" required autocomplete="off"> 
             </div>
             <div class="feature">
                 <label for="Pot">Potassium :</label>
-                <input type="text" id="Pot" onkeypress="moveToNext(event, 'sub')">>
+                <input type="text" name="potassium" id="Pot" onkeypress="moveToNext(event, 'sub')" required autocomplete="off">
             </div>
-            <div class="sub_canc">
+            <div class="submit">
+                <a id="sub"><button type="submit">Submit</button></a>
                 
-            </div>
+              </div>
           </form>
-          <div class="submit">
-            <a href="Crop_data.html" id="sub"><button>Submit</button></a>
-            <a href="Choose.html"><button class="Go">Go Back</button></a>
-          </div>
+          <a href="/goback"><button class="Go">Go Back</button></a>
     </div>
 </body>
 </html>

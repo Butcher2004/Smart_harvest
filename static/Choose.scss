@@ -8,21 +8,34 @@ body
 {
     margin: 0;
     @include flex_center(row);
-    background-color: black;
+    background-image: url("/static/images/agri_5_1.jpg");
+    background-size: cover;
+    background-position: center;
+    background-color: rgba(0, 0, 0, 0.5);
     color: $page_text_color;
     gap:80px;
     height: 100vh;
 }
 
+h1
+{
+    @include font(Montserrat, 50px, 600);
+    position: absolute;
+    top: 20px;
+    
+}
+
 a
 {
+    margin-top: 50px;
     text-decoration: none;
 }
 .Crop_rec
 {
     height: 500px;
     width: 400px;
-    opacity: 0.7;
+    border-radius: 2%;
+    opacity: 0.8;
     overflow: hidden ;
     cursor: pointer;
     &:hover
